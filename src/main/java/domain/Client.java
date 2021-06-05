@@ -18,5 +18,10 @@ public class Client {
     private String lastName;
     private String middleName;
     private LocalDate birthday;
+    private Long client_id;
+    private Long account_number;
+    private Long amount;
+    private Long maxAmount;
+    private Long totalAmount;
 }
 
