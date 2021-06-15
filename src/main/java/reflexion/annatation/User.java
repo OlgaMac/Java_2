@@ -5,9 +5,9 @@ import lombok.ToString;
 @ToString
 
 public class User {
-    @RandomString(length = 16, isUpperRegister = false)
+    @RandomString(length = 16)
     private  String name;
-    @RandomString(length = 16, isUpperRegister = false)
+    @RandomString(length = 16)
     private String lastName;
 
     @RandomInt(min = 0, max = 100)

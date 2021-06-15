@@ -10,8 +10,9 @@ public class RandomApp {
         String[] names = {"reflexion.annatation.User"};
         user = (User) processor.createObjectByClassName(User.class.getName());
         Object[] objects = processorString.createObjectByClassName(names);
-        for(Object o: objects)
-          System.out.println(o);
+        for (Object o : objects) {
+            System.out.println(o);
+        }
 
 
         //System.out.println(user);
