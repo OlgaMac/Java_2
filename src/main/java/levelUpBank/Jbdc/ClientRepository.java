@@ -1,6 +1,7 @@
-package levelUpBank;
+package levelUpBank.Jbdc;
 
-import domain.Client;
+import domain.ClientEntity;
+import domain.ClientEntity;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -12,5 +13,5 @@ import java.util.Collection;
 public interface ClientRepository {
     void createNewClient(String firstName, String lastName, String middleName, LocalDate birthday);
     void printAllClients();
-    Collection<Client> findClientsWhenBirthdayBetween(LocalDate begin, LocalDate end);
+    Collection<ClientEntity> findClientsWhenBirthdayBetween(LocalDate begin, LocalDate end);
 }

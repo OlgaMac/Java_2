@@ -5,7 +5,7 @@ import lombok.SneakyThrows;
 import java.lang.reflect.Field;
 import java.util.Random;
 
-public class RandomIntAnnatationProcessor {
+public class RandomIntAnnotationProcessor {
     @SneakyThrows
     public Object createObjectByClassName(String className) {
         Class<?> objectClass = Class.forName(className);

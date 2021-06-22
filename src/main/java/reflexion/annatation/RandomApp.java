@@ -1,10 +1,8 @@
 package reflexion.annatation;
 
-import java.util.List;
-
 public class RandomApp {
     public static void main(String[] args) {
-        RandomIntAnnatationProcessor processor = new RandomIntAnnatationProcessor();
+        RandomIntAnnotationProcessor processor = new RandomIntAnnotationProcessor();
         RandomStringAnnotationProcessor processorString = new RandomStringAnnotationProcessor();
         User user = new User();
         String[] names = {"reflexion.annatation.User"};

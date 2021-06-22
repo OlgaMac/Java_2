@@ -1,19 +1,17 @@
-package reflexion.profiling;
+package levelUpBank.Jbdc.pool;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-public class ProfilingInVacationHandler implements InvocationHandler {
+public class ConnectionOpenInvocationHandler implements InvocationHandler {
     private Object original;
 
-    public ProfilingInVacationHandler(Object original) {
-        this.original = original;
-    }
 
+    public ConnectionOpenInvocationHandler(Object original) {this.original = original;}
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Method originalMethod = original.getClass().getDeclaredMethod(method.getName(), method.getParameterTypes());
-        if (originalMethod.getAnnotation(Profiling.class) != null) {
+        if (originalMethod.getAnnotation(ConnectionTime.class) != null) {
             long start = System.nanoTime();
             Object result = method.invoke(original, args);
             System.out.println("Execution time: " + (System.nanoTime() - start));

@@ -1,6 +1,9 @@
-package levelUpBank;
+package levelUpBank.Jbdc;
 
-import domain.Client;
+import domain.ClientEntity;
+import levelUpBank.Jbdc.*;
+import levelUpBank.Jbdc.pool.ConnectionManager;
+import levelUpBank.Jbdc.pool.PostgreSqlConnectionManager;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -11,16 +14,16 @@ public class BankApplication {
 
         ConnectionManager cm = new PostgreSqlConnectionManager();
         ClientRepository clientRepository = new JdbcClientRepository(cm);
-        //clientRepository.createNewClient("Im","Kim", null, null);
-        //clientRepository.printAllClients();
-        /*Collection<Client> clients = clientRepository.findClientsWhenBirthdayBetween(
+        clientRepository.createNewClient("Im","Kim", null, null);
+        clientRepository.printAllClients();
+        Collection<ClientEntity> clients = clientRepository.findClientsWhenBirthdayBetween(
                 LocalDate.of(1950, 1, 1),
                 LocalDate.of(1980, 12, 31)
         );
 
-        for (Client client : clients) {
+        for (ClientEntity client : clients) {
             System.out.println(client.getClientId() + " " + client.getLastName() + " " + client.getBirthday());
-        }*/
+        }
 
         AccountRepository accountRepository = new JdbcAccountRepositoryImpl(cm);
         //accountRepository.createNewAccount(456254154, 45268);

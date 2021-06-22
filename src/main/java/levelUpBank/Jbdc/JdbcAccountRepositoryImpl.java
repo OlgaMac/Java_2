@@ -1,5 +1,6 @@
-package levelUpBank;
+package levelUpBank.Jbdc;
 
+import levelUpBank.Jbdc.pool.ConnectionManager;
 import lombok.AllArgsConstructor;
 
 import java.sql.*;
