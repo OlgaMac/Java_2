@@ -14,9 +14,23 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ClientRepository {
     private final SessionFactory factory;
-    private LocalDate birthday;
 
-    public ClientEntity createClient(long id){
+    public ClientEntity createClient(String firstName, String lastName, String middleName, LocalDate birthday){
+        try(Session session = factory.openSession()){
+            Transaction tx = session.beginTransaction();
+            ClientEntity newClient = new ClientEntity();
+            newClient.setLastName("lastName");
+            newClient.setFirstName("firstName");
+            newClient.setMiddleName("middleName");
+            newClient.setBirthday(birthday);
+
+            session.save(newClient);
+            tx.commit(); // фиксация изменений в рамках транзакции
+            return newClient;
+
+        }
+    }
+   /* public ClientEntity editClient(String firstName, String lastName, String middleName, LocalDate birthday){
         try(Session session = factory.openSession()){
             Transaction tx = session.beginTransaction();
             ClientEntity newClient = new ClientEntity();
@@ -29,6 +43,6 @@ public class ClientRepository {
             tx.commit(); // фиксация изменений в рамках транзакции
             return newClient;
         }
-    }
+    }*/
 
 }
