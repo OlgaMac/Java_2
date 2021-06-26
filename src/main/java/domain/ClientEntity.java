@@ -14,8 +14,9 @@ import java.util.Date;
 @Entity
 @Table(name = "clients")
 @AllArgsConstructor
-@NoArgsConstructor // всегда пустой конструктор или без параметров
-public class ClientEntity {
+@NoArgsConstructor
+public // всегда пустой конструктор или без параметров
+class ClientEntity {
     @Id //первичный ключ
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +34,8 @@ public class ClientEntity {
     //@JoinColumn(name = "client_id")
     private  ClientDataEntity clientData;
 
-    @OneToMany(mappedBy = "client")
-    private Collection<AccountEntity> accounts;
+    //@OneToMany(mappedBy = "client")
+    //private Collection<AccountEntity> accounts;
 
     public ClientEntity(Long clientId, String lastName, String firstName, String middleName, LocalDate birthday) {
         this.clientId = clientId;
