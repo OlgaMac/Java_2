@@ -16,12 +16,12 @@ public class HiberBankApplication {
         SessionFactory factory = HibernateUtils.getFactory();
         ClientRepository clientRepository = new ClientRepository(factory);
         //ClientEntity client1 = clientRepository.createClient("Ivanov", "Ivan", "Petrovich", LocalDate.of(1945,05,12));
-        //clientRepository.editClient(1025l);
+        clientRepository.editClient(1000l, "Petr", "Sir", "Ivanovich", LocalDate.of(1985, 12,01));
         //clientRepository.deleteClient(1035l);
-        Collection<ClientEntity> clients = clientRepository.printAllClients();
+        /*Collection<ClientEntity> clients = clientRepository.printAllClients();
         for(ClientEntity client : clients){
             System.out.println(client.toString());
-        }
+        }*/
         factory.close();
     }
 }

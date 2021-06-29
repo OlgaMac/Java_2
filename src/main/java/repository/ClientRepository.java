@@ -34,30 +34,23 @@ public class ClientRepository {
         }
     }
 
-    public void editClient(Long clientId) {
-        String firstName = "Nikolay";
-        String lastName = "Sidorov";
-        String middleName = "Ivanovich";
-        LocalDate birthday = LocalDate.of(1985, 05, 12);
+    public  ClientEntity editClient(Long clientId,String firstName, String lastName, String middleName, LocalDate birthday) {
         try (Session session = factory.openSession()) {
-            String HQL = "update ClientEntity set firstName = : firstName, lastName = : lastName," +
-                    "middleName = : middleName, birthday = : birthday where clientId = :clientId";
-            Query query = session.createQuery(HQL);
-            query.setParameter("firstName", firstName);
-            query.setParameter("lastName", lastName);
-            query.setParameter("middleName", middleName);
-            query.setParameter("birthday", birthday);
-            query.setParameter("clientId", clientId);
-
+            //String HQL = "update ClientEntity set firstName = : firstName, lastName = : lastName," +
+            //        "middleName = : middleName, birthday = : birthday where clientId = :clientId";
+            //Query query = session.createQuery(HQL);
             Transaction tx = session.beginTransaction();
-            int executeUpdate = query.executeUpdate();
-            tx.commit(); // фиксация изменений в рамках транзакции
-            if (executeUpdate > 0) {
-                System.out.println("Name and birthday were updated");
-            }
+            ClientEntity newClient = new ClientEntity();
+            newClient.setClientId(clientId);
+            newClient.setFirstName(firstName);
+            newClient.setLastName(lastName);
+            newClient.setMiddleName(middleName);
+            newClient.setBirthday(birthday);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            session.update(newClient);
+            tx.commit(); // фиксация изменений в рамках транзакции
+            return newClient;
         }
     }
 
