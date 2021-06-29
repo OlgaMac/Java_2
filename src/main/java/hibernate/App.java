@@ -12,15 +12,15 @@ import java.util.Collection;
 public class App {
     public static void main(String[] args) {
         SessionFactory factory = HibernateUtils.getFactory();
-        /*AccountRepository accountRepository = new AccountRepository(factory);
+        AccountRepository accountRepository = new AccountRepository(factory);
         //AccountEntity account = accountRepository.createAccount(1);
         //System.out.println(account.toString());
         Collection<AccountEntity> accounts = accountRepository.loadClientAccounts(3);
         for(AccountEntity account : accounts){
             System.out.println(account.toString());
         }
-        factory.close();*/
-        ManagerRepository managerRepository = new ManagerRepository(factory);
+        factory.close();
+        /*ManagerRepository managerRepository = new ManagerRepository(factory);
         ManagerEntity manager1 = managerRepository.addManager("Hello", "world");
         ManagerEntity manager2 = managerRepository.addManager("Ivan", "Petrov");
 
@@ -34,6 +34,6 @@ public class App {
         s.close();
         //System.out.println(load);
 
-        factory.close();
+        factory.close();*/
     }
 }

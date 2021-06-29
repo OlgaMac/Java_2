@@ -3,6 +3,7 @@ package domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,6 +14,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "clients")
+@ToString(exclude = "accounts")
 @AllArgsConstructor
 @NoArgsConstructor
 public // всегда пустой конструктор или без параметров
@@ -34,8 +36,8 @@ class ClientEntity {
     //@JoinColumn(name = "client_id")
     private  ClientDataEntity clientData;
 
-    //@OneToMany(mappedBy = "client")
-    //private Collection<AccountEntity> accounts;
+    @OneToMany(mappedBy = "client")
+    private Collection<AccountEntity> accounts;
 
     public ClientEntity(Long clientId, String lastName, String firstName, String middleName, LocalDate birthday) {
         this.clientId = clientId;
