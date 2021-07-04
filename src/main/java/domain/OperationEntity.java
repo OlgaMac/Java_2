@@ -14,10 +14,10 @@ public class OperationEntity {
     @Id
     @Column(name = "transaction_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Integer operationId;
-    @Column(name = "account_from")
+    private  Long operationId;
+    @Column(name = "account_from",length = 30)
     private String fromAccount;
-    @Column(name = "account_to")
+    @Column(name = "account_to", length = 30)
     private String toAccount;
     @Column(columnDefinition = "NUMERIC(19,0)")
     private Double amount;
