@@ -1,5 +1,6 @@
 package repository;
 
+import domain.AccountEntity;
 import domain.OperationEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

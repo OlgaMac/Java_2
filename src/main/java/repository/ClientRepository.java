@@ -70,7 +70,6 @@ public class ClientRepository {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public Collection<ClientEntity> printAllClients() {
